@@ -6,9 +6,12 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 const userRouter = require('./routes/userRoutes');
-const roomRouter = require('./routes/roomRoute')
+const roomRouter = require('./routes/roomRoute');
+const dinnerRouter = require('./routes/dinnerRoute');
 const userSchema = require('./schema/userSchema');
 const roomSchema = require('./schema/roomSchema');
+const dinnerSchema = require('./schema/dinnerSchema');
+
 
 
 const mongoose = require("mongoose");
@@ -22,6 +25,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/",userRouter)
 app.use('/',roomRouter)
+app.use('/',dinnerRouter)
 app.listen(port,()=>{
     console.log("Server is running on " + port);
 })

@@ -10,12 +10,13 @@ const userSchema = new mongoose.Schema({
         required:true,
         unique:true   
     },
-    // password:{
-    //     type:String
-    // },
     paymentPaid:{
-        type:Boolean
-        
+        type:Boolean    
+    },
+    dateOfJoining:{
+        type:Date,
+        //default:new Date().toLocaleDateString()
+        default:new Date()
     }
 })
 module.exports = mongoose.model("User",userSchema)

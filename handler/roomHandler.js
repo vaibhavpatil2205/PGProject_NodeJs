@@ -19,3 +19,4 @@ exports.createRoom = async (req,res)=>{
     const room = await RoomSchema.create(req.body)
     res.status(200).json({success:true,room})
 }
+

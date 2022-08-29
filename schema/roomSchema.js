@@ -12,8 +12,10 @@ const roomSchema = new mongoose.Schema({
     roomType:{
         type:String,
         required:true
-      
-    }
+      },
+      acAvailable:{
+        type:String
+      }
 })
 
 module.exports = mongoose.model("RoomSchema",roomSchema)
