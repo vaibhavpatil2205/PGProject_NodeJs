@@ -95,11 +95,11 @@ exports.deleteUser = async(req,res)=>{
 // weekly joined users
 
 exports.getWeeklyJoinedUsers = async(req,res)=>{ 
-    const today = new Date();
-    today.setDate(today.getDay() -2);
+    const date = new Date();
+    date.setDate(date.getDate() -2);
     const user = await User.find({
         dateOfJoining: {
-            $gte: today
+            $gte: date
         }
     })
     res.status(201).json({success:true,user})

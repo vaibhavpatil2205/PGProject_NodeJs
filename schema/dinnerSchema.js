@@ -1,29 +1,29 @@
 const mongoose = require("mongoose");
 
 const dinnerSchema = new mongoose.Schema({
-    dishes:[{
-        mondayDish:{
+    //dishes:[{
+        day:{
             type:String
         },
-        tuesdayDish:{
+        dish:{
             type:String
-        },
-        wednesdayDish:{
-            type:String
-        },
-        thursdayDish:{
-            type:String
-        },
-        fridayDish:{
-            type:String
-        },
-        saturdayDish:{
-            type:String
-        },
-        sundayDish:{
-            type:String
-        }
-    }]
+         }
+        // wednesdayDish:{
+        //     type:String
+        // },
+        // thursdayDish:{
+        //     type:String
+        // },
+        // fridayDish:{
+        //     type:String
+        // },
+        // saturdayDish:{
+        //     type:String
+        // },
+        // sundayDish:{
+        //     type:String
+        // }
+   // }]
 })
 
 module.exports = mongoose.model("Dishes",dinnerSchema)

@@ -2,9 +2,7 @@ const Dishes= require('../schema/dinnerSchema')
 
 // create dinner
 exports.createDinner = async(req,res)=>{
-    const dinner = await Dishes.create({
-        dishes: req.body.dishes
-    })
+    const dinner = await Dishes.create(req.body)
     res.status(201).json({success:true,dinner})
 }
 
@@ -16,6 +14,6 @@ exports.getWeeklyDinnerList = async(req,res)=>{
 
 // search Dinner by Day
 exports.getDinnerListByDay = async(req,res)=>{
-    const getDinner = await Dishes.find({"dishes":{$regex:req.params.key,$options:"$i"}})
+    const getDinner = await Dishes.find({"day":{$regex:req.params.key,$options:"$i"}})
     res.status(201).json({success:true,getDinner})
 }
