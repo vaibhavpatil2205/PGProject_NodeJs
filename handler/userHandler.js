@@ -27,17 +27,9 @@ res.status(201).json({success:true,userData})
 // update User
 
 exports.updateUser = async(req,res)=>{
-    let checkUser;
-    try{
-    checkUser = await User.findById(req.params.id)
-    }catch(err){
-    res.status(500).json({message:"Server error"})
-    }
-    if(checkUser){
         const updateUser = await User.findByIdAndUpdate(req.params.id,req.body)
         res.status(201).json({success:true,updateUser})
-    }
-}
+     }
 
 // Get Payment Pending User
 
@@ -63,14 +55,8 @@ exports.getUser = async(req,res)=>{
 // delete User
 
 exports.deleteUser = async(req,res)=>{
-    let checkUser;
-    try{checkUser= await User.findByIdAndDelete(req.params.id)
-    }catch(err){
-        res.status(500).json({message:"User not found"})
-    }
-    if(checkUser){
-        const deleteUser = await User.findByIdAndDelete(req.params.id,req.body)
-        res.status(201).json({success:true})
+   const deleteUser = await User.findByIdAndDelete(req.params.id)
+     res.status(200).json({success:true,message:"User Successfully deleted"})
     }
 
 }
